@@ -1,4 +1,5 @@
 import { criarItemDaLista } from "./scripts/criarItemDaLista.js";
+import verificarListaVazia from './scripts/verificarListaVazia.js';
 
 const listaCompras = document.getElementById("lista-de-compras");
 const botaoAdicionar = document.getElementById("adicionar-item");
@@ -9,19 +10,7 @@ botaoAdicionar.addEventListener("click", (evento) => {
   const itemDaLista = criarItemDaLista();
   listaCompras.appendChild(itemDaLista);
 
-  verificarListaVazia();
+  verificarListaVazia(listaCompras);
 });
 
-const mensagemListaVazia = document.querySelector(".mensagem-lista-vazia");
-
-function verificarListaVazia() {
-  const itensDaLista = listaCompras.querySelectorAll("li");
-
-  if (itensDaLista.length === 0) {
-    mensagemListaVazia.style.display = "block";
-  } else {
-    mensagemListaVazia.style.display = "none";
-  }
-}
-
-verificarListaVazia();
+verificarListaVazia(listaCompras);
